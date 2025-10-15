@@ -32,6 +32,11 @@ CREATE TABLE club_member_info_cleaned (
 	job_title VARCHAR(50),
 	membership_date NVARCHAR(50)
 );
+INSERT INTO  club_member_info_cleaned 
+SELECT * FROM club_member_info ;
+
+SELECT * FROM club_member_info_cleaned cmic  
+LIMIT 5;
 ```
 Results:
 |full_name|age|martial_status|email|phone|full_address|job_title|membership_date|
