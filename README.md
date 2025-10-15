@@ -37,3 +37,26 @@ INSERT INTO  club_member_info_cleaned
 SELECT * FROM club_member_info ;
 
 ```
+## 3. Checking duplicate
+Use query to check any duplicates in the files
+```sql
+SELECT cmic.full_name 
+		,cmic.age 
+		,cmic.email 
+		,cmic.full_address 
+		,cmic.job_title 
+		,cmic.martial_status 
+		,cmic.membership_date 
+		,cmic.phone
+		,COUNT(*) as count_duplicate
+FROM club_member_info_cleaned cmic 
+GROUP BY cmic.full_name 
+		,cmic.age 
+		,cmic.email 
+		,cmic.full_address 
+		,cmic.job_title 
+		,cmic.martial_status 
+		,cmic.membership_date 
+		,cmic.phone 
+HAVING COUNT(*) > 1;
+```
